@@ -5,3 +5,9 @@ Cat or noncat with Neural Network
 ----
 Takip etsene lan beni göt
 ----
+
+= CNN_MNIST
+
+cnn_mnist.m adlı dosyayı matlabda açıp run edince otomatik olarak verisetini indirip hazırlıyor ve daha sonra eğitime başlıyor.
+
+eğitim bittikten sonra 0'dan 9'a kadar olan rakamları tanımaya başlayan program elde etmiş oluyoruz.
