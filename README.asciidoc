@@ -11,3 +11,5 @@ Takip etsene lan beni göt
 cnn_mnist.m adlı dosyayı matlabda açıp run edince otomatik olarak verisetini indirip hazırlıyor ve daha sonra eğitime başlıyor.
 
 eğitim bittikten sonra 0'dan 9'a kadar olan rakamları tanımaya başlayan program elde etmiş oluyoruz.
+
+cnn_experiments tam olarak ne işe yarıyor bilmiyorum.
