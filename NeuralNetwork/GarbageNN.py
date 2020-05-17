@@ -14,16 +14,15 @@ from Compute_Cost import compute_cost
 
 def load_data():
     train_dataset = h5py.File("C:\\Users\\Ege\\Desktop\\NeuralNetwork\\DataSets\\train_all_64.hdf5", "r")
-    train_set_x_orig = np.array(train_dataset["train_img"][:]) # your train set features
-    train_set_y_orig = np.array(train_dataset["train_labels"][:]) # your train set labels
+    train_set_x_orig = np.array(train_dataset["train_img"][:])                  # your train set features
+    train_set_y_orig = np.array(train_dataset["train_labels"][:])               # your train set labels
 
     test_dataset = h5py.File("C:\\Users\\Ege\\Desktop\\NeuralNetwork\\DataSets\\test_plastic_glass_metal_64.hdf5", "r")
-    test_set_x_orig = np.array(test_dataset["test_img"][:])       # test set features
+    test_set_x_orig = np.array(test_dataset["test_img"][:])                     # test set features
     test_set_y_orig = np.array(test_dataset["test_labels"][:])  
 
-    classes = np.array(test_dataset["list_classes"][:]) # the list of classes
+    classes = np.array(test_dataset["list_classes"][:])                         # the list of classes
     
-    #train_set_y_orig = train_set_y_orig.reshape((1, train_set_y_orig.shape[0]))
     test_set_y_orig = test_set_y_orig.reshape((1, test_set_y_orig.shape[0]))
     
     return train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig, classes
@@ -99,7 +98,7 @@ def Model_forward(X, parameters):
         A, cache = linear_activation_forward(A_prev, parameters['W' + str(l)], parameters['b' + str(l)], activation = "relu")
         caches.append(cache)
 
-    # Implement LINEAR -> SIGMOID. Add "cache" to the "caches" list.
+    # Implement LINEAR -> SOFTMAX. Add "cache" to the "caches" list.
     
     AL, cache = linear_activation_forward(A, parameters['W' + str(L)], parameters['b' + str(L)], activation = "softmax")
     caches.append(cache)
@@ -118,7 +117,7 @@ def Model_backward(AL, Y, caches):
     # Initializing the backpropagation
     dZ = AL - Y
     
-    # Lth layer (SIGMOID -> LINEAR) gradients. Inputs: "AL, Y, caches". Outputs: "grads["dAL"], grads["dWL"], grads["dbL"]
+    # Lth layer (SOFTMAX -> LINEAR) gradients. Inputs: "AL, Y, caches". Outputs: "grads["dAL"], grads["dWL"], grads["dbL"]
     current_cache = caches[L-1]
     grads["dA" + str(L-1)], grads["dW" + str(L)], grads["db" + str(L)] = linear_activation_backward(dZ, current_cache, activation = "softmax")
     
@@ -171,7 +170,7 @@ def Layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 3000
     # Loop (gradient descent)
     for i in range(0, num_iterations):
 
-        # Forward propagation: [LINEAR -> RELU]*(L-1) -> LINEAR -> SIGMOID.
+        # Forward propagation: [LINEAR -> RELU]*(L-1) -> LINEAR -> SOFTMAX.
         AL, caches = Model_forward(X,parameters)
 
         # Compute cost.
