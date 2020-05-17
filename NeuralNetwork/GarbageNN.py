@@ -13,7 +13,7 @@ from Linear_backward import linear_activation_backward
 from Compute_Cost import compute_cost
 
 def load_data():
-    train_dataset = h5py.File("C:\\Users\\Ege\\Desktop\\Pyhton\\DataSetWihtH5\\train_all_64.hdf5", "r")
+    train_dataset = h5py.File("C:\\Users\\Ege\\Desktop\\NeuralNetwork\\DataSets\\train_all_64.hdf5", "r")
     train_set_x_orig = np.array(train_dataset["train_img"][:]) # your train set features
     train_set_y_orig = np.array(train_dataset["train_labels"][:]) # your train set labels
 
