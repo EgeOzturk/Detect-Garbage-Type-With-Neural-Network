@@ -1,9 +1,73 @@
+= Detect Garbage Type With Neural Network
+
+Detects that a picture or test dataset pictures is plastic, glass or metal.
+
+----
+Activition Funtions : 
+ReLu ---> ReLu ---> ReLu ---> ReLu ---> Softmax
+(if we want can add sigmoid function instead of some reLu functions)
+
+Backpropagation For Sigmoid :  
+  dAL = - (np.divide(Y, AL) - np.divide(1 - Y, 1 - AL)) 
+  ----> if you use this we have to add one more loop (Not change first(Initializing the backpropagation(Line 116)) dA value so it necessary for softmax function)
+----
+
+----
+Number of Layers : 5
+Number of Nodes : (64 - 20 - 7 - 5 - 3)
+Each Image is of Size : 64x64x3 (3 - RGB)
+----
+
+.According to Node Number Weight And Bias Info Shape
+|===
+| Layers | Weigts | Bias
+| First Layer
+| (64,12288)
+| (64,1)
+| Second Layer
+| (20,64)
+| (20,1)
+| Third Layer
+| (7,20)
+| (7,1)
+| Fourth Layer
+| (5,7)
+| (5,1)
+| Fifty Layer
+| (3,5)
+| (3,1)
+|===
+
+.DataSet Info
+|===
+| Info | Plastic | Glass | Metal | Total   
+| Number of Train Examples
+| 200
+| 200
+| 200
+| 600
+| Number of Test Examples
+| 30
+| 30
+| 30
+| 90
+| Result Values
+| 0
+| 1
+| 2
+|===
+
 = Neural-Network-about-Cats
 
 Cat or noncat with Neural Network 
 
 ----
-Takip etsene lan beni göt
+Activition Funtions : 
+ReLu ---> Sigmoid ----> 0 or 1 (cat or noncat)
+----
+----
+Number of Layers : 4
+Number of Nodes : (20 - 7 - 5 -1)
 ----
 
 = CNN_MNIST
