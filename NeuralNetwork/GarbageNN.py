@@ -221,13 +221,13 @@ if __name__ == "__main__":
     ######################################################################################################
 
     print("\n")
-    print("Number of Traing Examples  : " + str(train_x_orig.shape[0]))
-    print("Number of Testing Examples : " + str(test.shape[0]))
-    print("Each Image is of Size      : (" + str(64) + ", " + str(64) + " , 3)")
-    print("traing_x_orig shape        : " + str(train_x_orig.shape))
-    print("train_y shape              : " + str(train_y.shape))
-    print("test shape                 : " + str(test.shape))
-    print("test_y shape               : " + str(test_y.shape))
+    print("Number of Traing Examples      : " + str(train_x_orig.shape[0]))
+    print("Number of Testing Examples     : " + str(test.shape[0]))
+    print("Each Image is of Size          : (" + str(64) + ", " + str(64) + " , 3)")
+    print("traing_x_orig shape            : " + str(train_x_orig.shape))
+    print("train_y shape                  : " + str(train_y.shape))
+    print("test shape                     : " + str(test.shape))
+    print("test_y shape                   : " + str(test_y.shape))
 
     print("\n")
     print("Started Iteration For Training : ")
@@ -237,9 +237,11 @@ if __name__ == "__main__":
     ######################################################################################################
 
     layers_dims = [12288,64,20,7,5,3]
-    print("Number of Layers(64,20,7,5,3) S: " + str(len(layers_dims)-1))
+    num_iterations = 2000
+    print("Number of Layers(64,20,7,5,3)  : " + str(len(layers_dims)-1))
+    print("Number of iterations           : " + str(num_iterations))
     print("\n") 
-    parameters = Layer_model(train_x,Y_new,layers_dims,num_iterations=2000, print_cost=True)
+    parameters = Layer_model(train_x,Y_new,layers_dims,num_iterations=num_iterations, print_cost=True)
 
     ######################################################################################################
     #                                             Predict                                                #
